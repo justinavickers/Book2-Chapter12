@@ -1,0 +1,15 @@
+#boxContainer {
+  display: flex;
+}
+
+#blueBox {
+  flex-direction: row;
+  border: 1px solid blue;
+  width: 50%;
+}
+
+#redBox {
+  flex-direction: row;
+  border: 1px solid red;
+  width: 50%;
+}
