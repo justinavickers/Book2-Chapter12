@@ -1,36 +1,26 @@
 // Write a function named flightHandlerFunction that will remove the
 // disabled class on the corresponding <section id="flight"> (section, not button)
 // and replace it with a class of enabled.
-
-function flightHandlerFunction (event) {
-  const flightSection = document.getElementById("flight")
-  flightSection.classList.add("enabled");
-  flightSection.classList.remove("disabled")
-   console.log("flight")
+function activate (powerName){
+  const powerEl = document.getElementById(powerName)
+  powerEl.classList.add("enabled")
+  powerEl.classList.remove("disabled")
+  console.log(powerName)
 }
-document.getElementById("activate-flight").addEventListener("click", flightHandlerFunction)
-
-function mindReadingFunction (event) {
-  const mindSection = document.getElementById("mindreading")
-  mindSection.classList.add("enabled");
-  mindSection.classList.remove("disabled")
-  console.log("mind")
+function initiateActivation(event) {
+   // event.target.id = "active-flight"
+  // ["active", "flight"]
+  const powerName = event.target.id.split("-")[1]
+  activate(powerName)
 }
-document.querySelector("#activate-mindreading").addEventListener("click", mindReadingFunction)
-
-
-function xrayFunction (event) {
-  const xraySection = document.getElementById("xray")
-  xraySection.classList.add("enabled");
-  xraySection.classList.remove("disabled")
-  console.log("xray")
-}
-document.querySelector("#activate-xray").addEventListener("click", xrayFunction)
+document.getElementById("activate-flight").addEventListener("click", initiateActivation)
+document.querySelector("#activate-mindreading").addEventListener("click", initiateActivation)
+document.querySelector("#activate-xray").addEventListener("click", initiateActivation)
 
 function activatePowersFunction(event) {
-  flightHandlerFunction()
-  mindReadingFunction()
-  xrayFunction()
+ activate("flight")
+ activate("mindreading")
+ activate("xray")
 }
 document.querySelector("#activate-all").addEventListener("click", activatePowersFunction)
 
